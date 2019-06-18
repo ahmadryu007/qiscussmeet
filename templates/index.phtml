@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Qiscus Chat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/web/latest/qiscus-sdk.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <div id="sample-app-container">
+    <div class="modal-confirmation-container hidden">
+      <div class="modal-confirmation-shadow-div"></div>
+      <div class="modal-confirmation">
+        <div class="caller-head-info">
+          <img id="caller-avatar" src="">
+        </div>
+        <div class="caller-name-info">
+          <h2 id="caller-name"></h2>
+        </div>
+        <div class="button-group">
+          <button class="button -red -decline"><i class="fa fa-close"></i> Reject</button>
+          &nbsp;&nbsp;&nbsp;
+          <button class="button -green -accept"><i class="fa fa-phone"></i> Accept</button>
+        </div>
+      </div>
+    </div>
+    <div class="app-sidebar-container">
+      <div class="app-sidebar contact-list hidden">
+        <div class="sidebar-topbar">
+          <button id="hide-contact-list-btn" class="navigation-btn">
+            <i class="icon icon-arrow-thin-right mirrored"></i>
+          </button>
+          <span class="sidebar-title">Contact</span>
+        </div>
+        <div class="search-container">
+          <i class="fa fa-search"></i>
+          <input type="search" class="search" id="search-contact" placeholder="Search contact">
+        </div>
+        <div class="contact-list-container">
+          <ul class="contact-list"></ul>
+        </div>
+      </div>
+      <div class="app-sidebar main">
+        <div class="app-sidebar__header">
+          <img src="">
+          <div class="app-sidebar__myinfo">
+            <div></div>
+            <span></span>
+          </div>
+          <div class="app-sidebar__toolbar">
+            <button id="show-contact-list" class="app-sidebar__tool-btn">
+              <i class="icon icon-contact" aria-hidden="true"></i>
+            </button>
+            <button id="menu-btn" class="app-sidebar__tool-btn">
+              <i class="icon icon-menu" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div id="menu-target" class="popover-menu hidden">
+            <ul class="menus">
+              <li><a href="javascript:void(0)" id="logout-btn"> Logout
+              </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="app-sidebar__search">
+          <i class="app-sidebar__search__icon"></i>
+          <label class="hidden" for="input-search-room">label</label>
+          <input type="search" name="search-room" id="input-search-room">
+        </div>
+        <div class="app-sidebar__lists">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+    <div class="sdk-wrapper">
+      <button id="call-button" class="call-button--chat">
+        <i class="fa fa-video-camera"></i>
+      </button>
+      <button id="conf-button" class="conf-button--chat">
+        <i class="fa fa-users"></i>
+      </button>
+      <div id="empty-chat-wrapper" class="empty-chat-container">
+        <div class="icon-container">
+          <img src="assets/img/icon-empty.svg">
+        </div>
+        <div class="description">
+          <div class="big-desc">Please select conversation to start</div>
+          <div class="small-desc">Choose one conversation from conversation list on the left</div>
+        </div>
+      </div>
+      <div id="qiscus-widget"></div>
+    </div>
+  </div>
+  <script>
+    var SDK_APP_ID = '<?= $CHAT_APP_ID; ?>';
+  </script>
+  <script src="https://unpkg.com/lodash@4.17.4/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/lib/js/emojione.min.js"></script>
+  <script src="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/web/latest/qiscus-sdk.js"></script>
+  <script src="https://unpkg.com/jquery@3.2.1/dist/jquery.js"></script>
+  <script src="assets/js/md5.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/call.js"></script>
+</body>
+
+</html>

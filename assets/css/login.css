@@ -1,0 +1,93 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open sans', sans-serif;
+  background: #2ACB6E;
+  overflow-x:hidden;
+  max-height: 100vh;
+  color:white;
+}
+.wrapper {
+  max-width:360px;
+  overflow:hidden;
+  margin:0 auto;
+  text-align:center;
+}
+h1.title {
+  text-transform:uppercase;
+  font-size:24px;
+  font-weight:normal;
+  margin-top:99px;
+}
+img.banner {
+  height:111px;
+  width:105px;
+  object-fit:contain;
+  margin-top:53px;
+}
+form.form-container {
+  margin-top: 54px;
+}
+.form-container .form-control {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 16px;
+}
+.form-container .form-control label {
+  color: white;
+  text-transform:uppercase;
+  font-size:13px;
+  /* font-weight:600; */
+  letter-spacing:0.65px;
+  margin-bottom: 6px;
+}
+.form-container .form-control input {
+  background: white;
+  border:none;
+  border-radius:14px;
+  height:36px;
+  width: 268px;
+  padding: 0 20px;
+}
+.form-control.button .form-button {
+  border: solid 2px #219653;
+  border-radius:4px;
+  color: #219653;
+  text-transform:uppercase;
+  text-align:center;
+  height:64px;
+  width:360px;
+  background:transparent;
+  font-size:18px;
+  position: relative;
+  line-height:0.5;
+  text-indent:-30px;
+  cursor:pointer;
+  margin-top: 70px;
+}
+.form-control.button .form-button:hover {
+  color:white;
+  background: #219653;
+  border: 2px solid #219653;
+}
+.form-control.button .form-button:hover i.icon-arrow-right {
+  background-image: url(/assets/img/icon-login-arrow-right-white.svg);
+}
+.form-control.button .form-button i.icon-arrow-right {
+  background-image: url(/assets/img/icon-login-arrow-right.svg);
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display:inline-block;
+  height:20px;
+  width: 20px;
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  margin-left:10px;
+}

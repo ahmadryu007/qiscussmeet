@@ -1,0 +1,12 @@
+<svg width="28" height="20" viewBox="0 0 28 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>ic_camera</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-14520 31)">
+<g id="ic_camera">
+<use xlink:href="#path0_fill" transform="translate(14520 -31)" fill="#FFFFFF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 2 0C 0.895508 0 0 0.89543 0 2L 0 18C 0 19.1046 0.895508 20 2 20L 26 20C 27.1045 20 28 19.1046 28 18L 28 2C 28 0.89543 27.1045 0 26 0L 2 0ZM 2 3C 2 2.44772 2.44727 2 3 2L 4 2C 4.55273 2 5 2.44772 5 3C 5 3.55228 4.55273 4 4 4L 3 4C 2.44727 4 2 3.55228 2 3ZM 24 10C 24 13.3137 21.3135 16 18 16C 14.6865 16 12 13.3137 12 10C 12 6.68629 14.6865 4 18 4C 21.3135 4 24 6.68629 24 10Z"/>
+</defs>
+</svg>

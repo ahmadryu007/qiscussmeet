@@ -1,0 +1,12 @@
+<svg width="16" height="18" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic-contact</title>
+    <desc>Created using Figma</desc>
+    <g id="Canvas" transform="translate(-11985 197)">
+        <g id="ic-contact">
+            <use xlink:href="#path0_fill" transform="translate(11985 -197)" fill="#FFFFFF"/>
+        </g>
+    </g>
+    <defs>
+        <path id="path0_fill" fill-rule="evenodd" d="M 2 0C 1.44772 0 1 0.447708 1 1L 1 4L 0 4L 0 5L 1 5L 1 14L 0 14L 0 15L 1 15L 1 17C 1 17.5523 1.44772 18 2 18L 15 18C 15.5523 18 16 17.5523 16 17L 16 1C 16 0.447708 15.5523 0 15 0L 2 0ZM 14.6956 1.28572L 13 1.28572L 13 8L 11 6L 9 8L 9 1.28572L 2.30434 1.28572L 2.30434 16.7143L 14.6956 16.7143L 14.6956 1.28572Z"/>
+    </defs>
+</svg>
