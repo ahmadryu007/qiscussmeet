@@ -527,7 +527,7 @@ $(function () {
 
   function handleSystemMessage (message) {
     var isCall = message.payload.type === 'custom'
-      && message.payload.payload.type === 'call'
+      || message.payload.payload.type === 'call'
     if (isCall) {
       handleCallSystemMessage(message)
     }
@@ -543,6 +543,7 @@ $(function () {
     sessionStorage.INITIATOR = false;
     sessionStorage.AUTOACCEPT = true;
     $('.modal-confirmation-container')
+    .attr('data-room-id', message.room_id)
       .attr('data-caller-email', payload.call_caller.username)
       .attr('data-caller-name', payload.call_caller.name)
       .attr('data-callee-email', payload.call_callee.username)
@@ -572,8 +573,12 @@ $(function () {
   $('.modal-confirmation').on('click', '.-accept', function (event) {
     event.preventDefault()
     event.stopPropagation()
+
+    var as = $('.modal-confirmation-container');
+    roomIdCall = as.attr("data-room-id");
+
     $(this).parent().parent().parent().addClass('hidden')
-    var win = window.open('./room', '_blank')
+    var win = window.open('./meet/'+roomIdCall, '_blank')
     if (win) {
       win.focus()
     } else {
