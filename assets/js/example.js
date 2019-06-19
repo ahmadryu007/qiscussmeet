@@ -2,12 +2,11 @@
 
 const options = { 
     hosts: { 
-        domain: 'meet2.qiscus.com', 
-        muc: 'conference.meet2.qiscus.com', // FIXME: use XEP-0030 
-        focus: 'focus.meet2.qiscus.com', 
+        domain: 'meet.qiscus.com', 
+        muc: 'conference.meet.qiscus.com', // FIXME: use XEP-0030 
+        focus: 'focus.meet.qiscus.com', 
     }, 
-        bosh:'//meet2.qiscus.com/http-bind', // FIXME: use xep-0156 for that // The name of client node advertised in XEP-0115 'c' stanza 
-        clientNode: 'http://jitsi.org/jitsimeet' 
+        bosh:'//meet.qiscus.com/http-bind' // FIXME: use xep-0156 for that // The name of client node advertised in XEP-0115 'c' stanza 
 };
 
 const confOptions = {
