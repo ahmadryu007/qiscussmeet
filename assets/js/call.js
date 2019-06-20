@@ -12,6 +12,7 @@ $(function() {
       message: QiscusSDK.core.userData.username + ' call ' + targetName,
       payload: {
         type: 'webview_call',
+        room_id: targetRoomId,
         call_event: 'incoming',
         call_url: 'https://rtc.qiscus.com/demos/simple/init.html#' + roomId,
         call_caller: {
