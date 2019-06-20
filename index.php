@@ -46,6 +46,8 @@ $app->post('/init_call', function($request, $response, $args) {
     'message' => $params['message'],
     'payload' => [
       'type' => $params['payload']['type'],
+      'room_id' => $params['room_id'],
+      'call_room_id' => $params['room_id'],
       'call_event' => $params['payload']['call_event'],
       'call_url' => $params['payload']['call_url'],
       'call_caller' => [
