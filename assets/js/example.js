@@ -260,7 +260,7 @@ const initOptions = {
 
 QiscusMeet.init(initOptions);
 
-connection = new QiscusMeet.JitsiConnection(null, null, options);
+connection = new QiscusMeet.QiscusConnection(null, null, options);
 
 connection.addEventListener(
     QiscusMeet.events.connection.CONNECTION_ESTABLISHED,
