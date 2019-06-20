@@ -63,7 +63,7 @@ $(function() {
         label: 'Join conference',
         type: 'link',
         payload: {
-          url: './meet/' + uniqueId
+          url: 'https://meet-sample.herokuapp.com/meet/' + uniqueId
         }
       }]
     };
