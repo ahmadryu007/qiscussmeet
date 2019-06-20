@@ -54,6 +54,14 @@ $(function() {
     var targetAvatar = $(this).prev().prev().attr('src');
     handleCall(targetEmail, targetName, targetAvatar)
   });
+
+  $(document).on("click", ".action_buttons", function (el, e) {
+    if(el.originalEvent.rangeParent.data === "Join conference") {
+      window.open('./meet/'+el.target.href.split("/")[3], '_blank');
+    }
+    return false;
+  });
+
   $('.conf-button--chat').on('click', function (e) {
     e.preventDefault();
     var uniqueId = new Date().getTime();
@@ -63,7 +71,7 @@ $(function() {
         label: 'Join conference',
         type: 'link',
         payload: {
-          url: 'https://meet-sample.herokuapp.com/meet/' + uniqueId
+          url: 'qiscus://meet/' + uniqueId
         }
       }]
     };
