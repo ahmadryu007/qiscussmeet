@@ -7,8 +7,6 @@ $container = $app->getContainer();
 
 $container['CHAT_SDK_APP_ID'] = 'sdksample';
 $container['CHAT_SDK_APP_SECRET'] = '2820ae9dfc5362f7f3a10381fb89afc7';
-$container['CALL_SDK_APP_ID'] = 'sample-application-C2';
-$container['CALL_SDK_APP_SECRET'] = 'KpPiqKGpoN';
 
 $container['view'] = function($container) {
   return new \Slim\Views\PhpRenderer('./templates/');
@@ -72,17 +70,10 @@ $app->post('/init_call', function($request, $response, $args) {
 
   return $response->withJson(json_decode($res->getBody()));
 });
-$app->get('/call', function($request, $response, $args) {
-  return $this->view->render($response, 'call.phtml', [
-    "CALL_APP_ID" => $this->CALL_SDK_APP_ID,
-    "CALL_APP_SECRET" => $this->CALL_SDK_APP_SECRET
-  ]);
-});
 
 $app->get('/meet/{id}', function($request, $response, $args) {
   return $this->view->render($response, 'meet.phtml', [
-    "CALL_APP_ID" => $this->CALL_SDK_APP_ID,
-    "CALL_APP_SECRET" => $this->CALL_SDK_APP_SECRET
+
   ]);
 });
 

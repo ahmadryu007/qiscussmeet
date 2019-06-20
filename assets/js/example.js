@@ -22,7 +22,7 @@ const remoteTracks = {};
 
 /**
  * Handles local tracks.
- * @param tracks Array with JitsiTrack objects
+ * @param tracks Array with QiscusTrack objects
  */
 function onLocalTracks(tracks) {
     localTracks = tracks;
@@ -59,7 +59,7 @@ function onLocalTracks(tracks) {
 
 /**
  * Handles remote tracks
- * @param track JitsiTrack object
+ * @param track QiscusTrack object
  */
 function onRemoteTrack(track) {
     if (track.isLocal()) {
