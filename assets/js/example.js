@@ -216,14 +216,26 @@ function hangup() {
 
 function mutedAudio() {
     isAudio = !isAudio;
-    (!isAudio) ? localTracks[0].mute() : localTracks[0].unmute();
+    if(!isAudio) {
+        $("#btn-audio").addClass("black");
+        localTracks[0].mute();
+    } else {
+        $("#btn-audio").removeClass("black");
+        localTracks[0].unmute();
+    }
 }
 /**
  *
  */
 function mutedVideo() { // eslint-disable-line no-unused-vars
     isVideo = !isVideo;
-    (!isVideo) ? localTracks[1].mute() : localTracks[1].unmute();
+    if(!isVideo) {
+        $("#btn-video").addClass("black");
+        localTracks[1].mute();
+    } else {
+        $("#btn-video").removeClass("black");
+        localTracks[1].unmute();
+    }
 }
 
 /**

@@ -6127,3 +6127,7 @@ input[type=range]::-ms-thumb {
 .small-video > video{
     width: 100%;
 }
+
+.black {
+    background-color: #0000;
+}
