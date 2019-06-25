@@ -597,7 +597,9 @@ $(function () {
       "event": "rejected",
       "active": "false"
     }
+    qiscus.publishEvent(roomIdCall, rejected)
     qiscus.unsubscribeEvent(roomIdCall)
+    
     event.preventDefault()
     event.stopPropagation()
     $(this).parent().parent().parent().addClass('hidden')
