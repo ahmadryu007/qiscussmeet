@@ -542,9 +542,7 @@ $(function () {
     sessionStorage.ROOM = payload.call_room_id;
     sessionStorage.INITIATOR = false;
     sessionStorage.AUTOACCEPT = true;
-    qiscus.subscribeEvent(message.room_id.toString(), function(event){
-      console.log("success subscribe room "+ message.room_id.toString())
-    })
+    
     $('.modal-confirmation-container')
     .attr('data-room-id', message.room_id)
       .attr('data-caller-email', payload.call_caller.username)

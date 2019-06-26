@@ -204,6 +204,27 @@ function unload() {
 let isVideo = true;
 let isAudio = true;
 
+var qiscus = new QiscusSDKCore();
+qiscus.init({
+    AppId: "sdksample",
+    mode: 'wide',
+    options: {
+      // When we're success login into qiscus SDK we'll have a 1-on-1 chat to guest2@qiscus.com
+      // You can change this to any user you have on your AppId, e.g: contact@your_company.com, etc
+      loginSuccessCallback: function () {
+          console.log('login success cb')
+        qiscus.subscribeEvent("92535", function(event){
+            console.log("ganjar "+ event)
+        })
+      }
+    }
+  });
+  // login to qiscus
+  qiscus.setUser("user4_sample_call@example.com", "123", "User 4 Sample Call")
+    .then(() => console.log('p.success'))
+
+
+
 $(document).on("click", ".small-video", function (el, e) {
     var id = el.target.id;
     document.getElementById("localVideo").srcObject = document.getElementById(id).srcObject
