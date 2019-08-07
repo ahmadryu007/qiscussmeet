@@ -1,56 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <script src="../assets/js/libs/jquery-2.1.1.min.js"></script>
-    <script src="../assets/js/libs/strophe/strophe.js"></script>
-    <script src="../assets/js/libs/strophe/strophe.disco.min.js?v=1"></script>
-    <script src="../assets/js/libs/qiscus-sdk-core.min.js"></script>
-    <script src="https://qiscus-call-sdk.s3-ap-southeast-1.amazonaws.com/meet/lib-qiscus-meet.min.js"></script>
-    <script src="../assets/js/example.js" ></script>
-    <link rel="stylesheet" href="../assets/css/all.css">
-</head>
-<body>
-    <!-- <a href="#" onclick="unload()">Unload</a> -->
-    <!-- <a href="#" onclick="mutedVideo()">On/Off Camera</a>
-    <a href="#" onclick="mutedAudio()">On/Off Audion</a>
-    <a href="#" onclick="hangup()">hangup</a> -->
-    <div id="audioOutputSelectWrapper" style="display: none;">
-        Change audio output device
-        <select id="audioOutputSelect" onchange="changeAudioOutput(this)"></select>
-    </div>
-    <div class="vertical-filmstrip filmstrip">
-        <div class="filmstrip__videos" id="remoteVideos">
-                <div class="filmstrip__videos" id="filmstripLocalVideo" style="width: 124px;">
-                        <div id="remote-video" class="small-video"></div>
-                </div>
-        </div>
-    </div>
-    
-    
-    <!-- <video id="localVideo" autoplay="true"></video> -->
-    <!-- <audio id="localAudio" autoplay="true" muted="true"></audio> -->
-    <div class="new-toolbox visible" id="new-toolbox ">
-        <div class="toolbox-background"></div>
-        <div class="toolbox-content">
-            
-        <div class="button-group-center">
-            <div aria-label="Toggle mute audio" class="toolbox-button">
-                <button id="btn-audio" onclick="mutedAudio()" >Audio</button>
-            </div>
-            <div aria-label="Leave the call" class="toolbox-button">
-                <button id="btn-end-call" onclick="hangup()">EndCall</button>
-            </div>
-            <div aria-label="Toggle mute video" class="toolbox-button">
-                <button id="btn-video" onclick="mutedVideo()" >Video</button>
-            </div>
-        </div>
-    </div>
+<html itemscope itemtype="http://schema.org/Product" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <style type="text/css">
+            #meet {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="meet"></div>
+        <script src="https://meet.qiscus.com/external_api.js"></script>
+        <script>
+            var room = window.location.pathname.split('/')[2];
+            var domain = "meet.qiscus.com";
+            var options = {
+                roomName: room,
+                parentNode: document.querySelector('#meet'),
+                configOverwrite: {},
+                interfaceConfigOverwrite: {
+                    TOOLBAR_BUTTONS: [
+                        'microphone', 'camera', 'hangup'
+                    ],
+                    VIDEO_LAYOUT_FIT: 'both',
+                    SHOW_JITSI_WATERMARK: false,
+                    DISPLAY_WELCOME_PAGE_CONTENT: false,
+                    SHOW_WATERMARK_FOR_GUESTS: false,
+                    DEFAULT_REMOTE_DISPLAY_NAME: 'Guest',
+                    DISPLAY_WELCOME_PAGE_CONTENT: false,
+                    APP_NAME: 'Qiscus',
+                    NATIVE_APP_NAME: 'Qiscus',
+                    PROVIDER_NAME: 'Qiscus',
+                    CLOSE_PAGE_GUEST_HINT: true,
+                    RECENT_LIST_ENABLED: false
+                }
+            }
+            var api = new JitsiMeetExternalAPI(domain, options);
 
-    </div>
-</div>
-<div id="largeVideoWrapper"><video autoplay='1' id='localVideo' class='largeVideo'/></div>
-<div id="largeVideoWrapper"><audio autoplay='1' muted='true' id='localAudio' class='largeVideo' /></div>
-</body>
+            api.on('readyToClose', () => {
+                //tricky to close windows
+                var win = window.open("about:blank", "_self");
+                win.close();
+            });
+        </script>
+    </body>
 </html>
