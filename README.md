@@ -1,4 +1,4 @@
-# Qiscus Meet Sample Web
+# Qiscus Meet Sample WebApp
 
 ## Introduction
 
