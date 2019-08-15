@@ -15,10 +15,10 @@
     </head>
     <body>
         <div id="meet"></div>
-        <script src="https://meet.qiscus.com/external_api.js"></script>
+        <script src="https://qlue-call.qiscus.com/external_api.js"></script>
         <script>
             var room = window.location.pathname.split('/')[2];
-            var domain = "meet.qiscus.com";
+            var domain = "qlue-call.qiscus.com";
             var options = {
                 roomName: room,
                 parentNode: document.querySelector('#meet'),
@@ -36,7 +36,7 @@
                     PROVIDER_NAME: 'Qiscus',
                 }
             }
-            var api = new JitsiMeetExternalAPI(domain, options);
+            var api = new QiscusMeetExternalAPI(domain, options);
 
             api.on('readyToClose', () => {
                 //tricky to close windows
