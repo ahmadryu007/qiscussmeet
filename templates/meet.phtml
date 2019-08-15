@@ -34,7 +34,7 @@
                     PROVIDER_NAME: 'Qiscus',
                 }
             }
-            var api = new JitsiMeetExternalAPI(domain, options);
+            var api = new QiscusMeetExternalAPI(domain, options);
 
             api.on('readyToClose', () => {
                 //tricky to close windows
