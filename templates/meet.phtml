@@ -39,9 +39,31 @@
             api.executeCommand('displayName', 'D Family');
 
             api.on('readyToClose', () => {
+                // alert("panggil ready to close")
+                console.log("ini panggil readyToClose")
                 //tricky to close windows
                 var win = window.open("about:blank", "_self");
                 win.close();
+            });
+
+            api.on('participantJoined', (data) => {
+                //tricky to close windows
+               // alert("Get Name : "+ data.displayName );
+            });
+
+            api.on('videoConferenceLeft', (data) => {
+               alert("Get videoConferenceLeft : "+ data.roomName );
+            });
+
+            api.on('participantLeft', (data) => {
+                if(api.getNumberOfParticipants() === 1){
+                    setTimeout(function(){ 
+                        if(api.getNumberOfParticipants() === 1) {
+                            var win = window.open("about:blank", "_self");
+                            win.close();
+                        }
+                    }, 10000);
+                }
             });
         </script>
     </body>
