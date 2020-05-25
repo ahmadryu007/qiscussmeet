@@ -35,18 +35,21 @@ $(function() {
     sessionStorage.ROOM = roomId;
     sessionStorage.INITIATOR = true;
     sessionStorage.AUTOACCEPT = false;
+
     var win = window.open('./meet/'+targetRoomId, '_blank');
     if (win) {
       win.focus();
     } else {
       alert('Please allow popups.');
     }
+
   }
   $('.call-button--chat').on('click', function () {
     var el = document.querySelector('.sdk-wrapper')
     var email = el.dataset.userEmail
     var name = el.dataset.userName
-    handleCall(email, name, undefined, qiscus.selected.id)
+    var avatar = "https://d1edrlpyc25xu0.cloudfront.net/kiwari-prod/image/upload/75r6s_jOHa/1507541871-avatar-mine.png"
+    handleCall(email, name, avatar, qiscus.selected.id)
   });
   $('.call-button').on('click', function () {
     var targetEmail = $(this).parent().data('user-email');

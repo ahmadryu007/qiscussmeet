@@ -2,6 +2,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link rel="stylesheet" href="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/web/latest/qiscus-sdk.css">
+        <link rel="stylesheet" href="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/we/latest/qiscus-sdk.css">
         <style type="text/css">
             #meet {
                 position: absolute;
@@ -15,10 +17,10 @@
     </head>
     <body>
         <div id="meet"></div>
-        <script src="https://meet.qiscus.com/qiscus/external_api.js"></script>
+        <script src="https://dgcall.qiscus.com/qiscus/external_api.js"></script>
         <script>
             var room = window.location.pathname.split('/')[2];
-            var domain = "meet.qiscus.com";
+            var domain = "dgcall.qiscus.com";
             var options = {
                 roomName: room,
                 parentNode: document.querySelector('#meet'),
@@ -36,14 +38,22 @@
             }
             var api = new QiscusMeetExternalAPI(domain, options);
 
-            api.executeCommand('displayName', 'D Family');
+            api.executeCommand('displayName', 'Users');
 
             api.on('readyToClose', () => {
                 // alert("panggil ready to close")
                 console.log("ini panggil readyToClose")
                 //tricky to close windows
-                var win = window.open("about:blank", "_self");
-                win.close();
+                var rejected = {
+                    "sender": room,
+                    "event": "rejected",
+                    "active": "false"
+                }
+                qiscus.publishEvent(room, rejected)
+                qiscus.unsubscribeEvent(room)
+    
+                // var win = window.open("about:blank", "_self");
+                // win.close();
             });
 
             api.on('participantJoined', (data) => {
@@ -52,7 +62,10 @@
             });
 
             api.on('videoConferenceLeft', (data) => {
-               alert("Get videoConferenceLeft : "+ data.roomName );
+                setTimeout(function(){ 
+                            var win = window.open("about:blank", "_self");
+                            win.close();
+                    }, 2000);
             });
 
             api.on('participantLeft', (data) => {
@@ -65,6 +78,32 @@
                     }, 10000);
                 }
             });
+        </script>
+        <!-- <script src="https://unpkg.com/qiscus-sdk-core"></script> -->
+        <script src="https://unpkg.com/lodash@4.17.4/lodash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/lib/js/emojione.min.js"></script>
+        <script src="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/web/latest/qiscus-sdk.js"></script>
+        <script>
+             QiscusSDK.core.init({
+                AppId: "sdksample",
+                options: {
+                loginSuccessCallback: function (data) {
+                    console.log('loginSuccessCallback', data);
+                    var userData = {
+                    userId: "user3_sample_call@example.com",
+                    secret: "123",
+                    username: "User 3 Sample Call",
+                    avatarURL: ""
+                    };
+                }
+                }
+            });
+            QiscusSDK.core.setUser(
+                /* userId */ "user3_sample_call@example.com",
+                /* password */ "123",
+                /* displayName */ "User 3 Sample Call",
+                /* avatarURL */ ""
+            );
         </script>
     </body>
 </html>

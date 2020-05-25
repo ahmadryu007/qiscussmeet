@@ -18,7 +18,7 @@ $app->get('/', function($request, $response, $args) {
   ]);
 });
 $app->get('/login', function($request, $response, $args) {
-  $appId = $CHAT_SDK_APP_ID;
+  $appId = $this->CHAT_SDK_APP_ID;
   return $this->view->render($response, 'login.phtml', [
     "CHAT_APP_ID" => $this->CHAT_SDK_APP_ID
   ]);
@@ -27,18 +27,8 @@ $app->post('/init_call', function($request, $response, $args) {
   $params = $request->getParams();
   $client = new \GuzzleHttp\Client();
 
-  // get room id
-  $res = $client->request('GET', 'http://' . $this->CHAT_SDK_APP_ID . '.qiscus.com/api/v2/rest/get_or_create_room_with_target?emails[]=' . $params['payload']['call_caller']['username'] . '&emails[]=' . $params['payload']['call_callee']['username'], [
-    'headers' => [
-      'Accept' => 'application/json',
-      'Content-Type' => 'application/json',
-      'QISCUS_SDK_SECRET' => $this->CHAT_SDK_APP_SECRET
-    ]
-  ]);
-  $room = json_decode($res->getBody());
-
   // send system event
-  $params['room_id'] = $room->results->room->id;
+  $params['room_id'] = $params['payload']['room_id'];
   $data = [
     'system_event_type' => $params['system_event_type'],
     'room_id' => (string)$params['room_id'],
@@ -62,6 +52,10 @@ $app->post('/init_call', function($request, $response, $args) {
       ]
     ]
   ];
+
+  // var_dump($params);
+  // exit;
+    
   $res = $client->request('POST', 'http://' . $this->CHAT_SDK_APP_ID . '.qiscus.com/api/v2/rest/post_system_event_message', [
     'headers' => [
       'Content-Type' => 'application/json',
@@ -70,12 +64,13 @@ $app->post('/init_call', function($request, $response, $args) {
     'json' => $data
   ]);
 
+  
+
   return $response->withJson(json_decode($res->getBody()));
 });
 
 $app->get('/meet/{id}', function($request, $response, $args) {
   return $this->view->render($response, 'meet.phtml', [
-
   ]);
 });
 
