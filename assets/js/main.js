@@ -528,8 +528,15 @@ $(function () {
   function handleSystemMessage (message) {
     var isCall = message.payload.type === 'custom'
       || message.payload.payload.type === 'call'
+
+      var isEndCall = message.payload.payload.type === 'endcall'
+
     if (isCall) {
       handleCallSystemMessage(message)
+    }
+
+    if(isEndCall) {
+      $('.modal-confirmation-container').addClass("hidden")
     }
   }
   function handleCallSystemMessage (message) {
