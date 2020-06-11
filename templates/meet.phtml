@@ -46,13 +46,7 @@
                 // alert("panggil ready to close")
                 console.log("ini panggil readyToClose")
                 //tricky to close windows
-                var rejected = {
-                    "sender": room,
-                    "event": "rejected",
-                    "active": "false"
-                }
-                qiscus.publishEvent(room, rejected)
-                qiscus.unsubscribeEvent(room)
+                
     
                 // var win = window.open("about:blank", "_self");
                 // win.close();
@@ -64,10 +58,18 @@
             });
 
             api.on('videoConferenceLeft', (data) => {
+                var rejected = {
+                    "sender": room,
+                    "event": "rejected",
+                    "active": "false"
+                }
+                qiscus.publishEvent(room, rejected)
+                qiscus.unsubscribeEvent(room)
+
                 setTimeout(function(){ 
                             var win = window.open("about:blank", "_self");
                             win.close();
-                    }, 2000);
+                    }, 1000);
             });
 
             api.on('participantLeft', (data) => {
