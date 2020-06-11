@@ -20,11 +20,13 @@
         <script src="https://dgcall.qiscus.com/qiscus/external_api.js"></script>
         <script>
             var room = window.location.pathname.split('/')[2];
-            var domain = "dgcall.qiscus.com";
+            var domain = "meet.qiscus.com";
             var options = {
                 roomName: room,
                 parentNode: document.querySelector('#meet'),
-                configOverwrite: {},
+                configOverwrite: {
+                    requireDisplayName: false
+                },
                 interfaceConfigOverwrite: {
                     TOOLBAR_BUTTONS: [
                         'microphone', 'camera', 'hangup'
