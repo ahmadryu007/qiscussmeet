@@ -5,8 +5,8 @@ require 'vendor/autoload.php';
 $app = new \Slim\App();
 $container = $app->getContainer();
 
-$container['CHAT_SDK_APP_ID'] = 'sdksample';
-$container['CHAT_SDK_APP_SECRET'] = '2820ae9dfc5362f7f3a10381fb89afc7';
+$container['CHAT_SDK_APP_ID'] = 'kawan-seh-g857ffuuw9b';
+$container['CHAT_SDK_APP_SECRET'] = 'c7f3ab87acc3843a1b81d77c2b4d6b0c';
 
 $container['view'] = function($container) {
   return new \Slim\Views\PhpRenderer('./templates/');
